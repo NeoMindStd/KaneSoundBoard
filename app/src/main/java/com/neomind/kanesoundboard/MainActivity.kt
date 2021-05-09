@@ -1,11 +1,10 @@
 package com.neomind.kanesoundboard
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.neomind.kanesoundboard.databinding.ActivityMainBinding
-import kotlin.math.max
 
 class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by lazy {
@@ -22,15 +21,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        viewModel.count.observe(this) {
-            binding.mainText.text = it.toString()
-        }
-
-        binding.mainDecreaseButton.setOnClickListener {
-            viewModel.decreaseCount()
-        }
-        binding.mainIncreaseButton.setOnClickListener {
-            viewModel.increaseCount()
+        binding.mainPlayButton.setOnClickListener {
+            viewModel.playSound()
         }
     }
 }
