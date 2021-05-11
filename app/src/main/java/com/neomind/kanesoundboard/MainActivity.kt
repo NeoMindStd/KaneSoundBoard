@@ -1,6 +1,7 @@
 package com.neomind.kanesoundboard
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -21,8 +22,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        binding.mainPlayButton.setOnClickListener {
-            viewModel.playSound()
+        val files = (assets.list("") ?: emptyArray()).map { path ->
+            arrayOf(path) + path.split("/", ".")
+        }.filter { elements -> elements.size > 2 && elements.last() == "flac" }
+
+        for (file in files) {
+            Log.d("initView", "found sound file - ${file.first()}")
+            val kaneSound = KaneSound(
+                name = file[file.lastIndex - 1],
+                fullPath = file.first()
+            )
+            Log.d("initView", "kaneSound - $kaneSound")
         }
     }
 }
