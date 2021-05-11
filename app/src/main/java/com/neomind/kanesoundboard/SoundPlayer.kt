@@ -1,23 +1,21 @@
 package com.neomind.kanesoundboard
 
 import android.media.MediaPlayer
-import androidx.annotation.RawRes
 
 object SoundPlayer {
-    private val playerMap = mutableMapOf<Int, MediaPlayer>()
+    private val playerMap = mutableMapOf<String, MediaPlayer>()
 
-    fun playSound(@RawRes rawId: Int) {
-        val player = playerMap.getOrPut(rawId) {
-            MediaPlayer.create(
-                KaneApplication.instance.applicationContext,
-                rawId
-            )
+    fun playSound(soundFilePath: String) {
+        val player = playerMap.getOrPut(soundFilePath) {
+            val player = MediaPlayer()
+            player.setDataSource(soundFilePath)
+            player
         }
 
         when {
             player.isPlaying -> {
                 player.release()
-                playerMap.remove(rawId)
+                playerMap.remove(soundFilePath)
             }
             else -> {
                 player.isLooping = true
