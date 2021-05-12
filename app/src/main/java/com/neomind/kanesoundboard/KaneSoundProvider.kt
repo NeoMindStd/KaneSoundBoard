@@ -2,11 +2,7 @@ package com.neomind.kanesoundboard
 
 import android.content.Context
 
-class KaneSoundProvider {
-    private val context: Context by lazy {
-        KaneApplication.instance.applicationContext
-    }
-
+class KaneSoundProvider constructor(private val context: Context) {
     fun getKaneSoundAssets() = (context.assets.list("") ?: emptyArray()).map { path ->
         arrayOf(path) + path.split("/", ".")
     }.filter { elements ->

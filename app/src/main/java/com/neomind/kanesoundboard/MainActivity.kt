@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.neomind.kanesoundboard.databinding.ActivityMainBinding
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by lazy {
@@ -13,11 +14,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val kaneSoundProvider = KaneSoundProvider()
+    @Inject
+    lateinit var kaneSoundProvider: KaneSoundProvider
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        KaneApplication.appComponent.inject(this)
 
         initViewModel()
         initView()
