@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.neomind.kanesoundboard.databinding.ActivityMainBinding
 import javax.inject.Inject
 
@@ -34,5 +35,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
+        val adapter = KaneSoundAdapter(this)
+        binding.mainRecycler.layoutManager = GridLayoutManager(this, 3)
+        binding.mainRecycler.adapter = adapter
+
+        viewModel.kaneSounds.observe(this) {
+            adapter.notifyDataSetChanged()
+        }
     }
 }

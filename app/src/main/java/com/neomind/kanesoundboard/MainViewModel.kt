@@ -1,5 +1,6 @@
 package com.neomind.kanesoundboard
 
+import android.content.res.AssetFileDescriptor
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,7 +16,7 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    fun playSound(soundFilePath: String) {
-        SoundPlayer.playSound(soundFilePath)
+    fun playSound(assetFileDescriptor: AssetFileDescriptor) {
+        SoundPlayer.playSound(assetFileDescriptor)
     }
 }
