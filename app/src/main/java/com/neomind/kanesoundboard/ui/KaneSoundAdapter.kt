@@ -39,7 +39,7 @@ class KaneSoundAdapter(activity: MainActivity) :
     inner class ViewHolder(private val binding: RecyclerItemMainBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(kaneSound: KaneSound) {
-            binding.mainRecyclerPlayButton.text = kaneSound.name
+            binding.mainRecyclerPlayText.text = kaneSound.name
             binding.mainRecyclerPlayButton.setOnClickListener {
                 viewModel.playSound(kaneSound.assetFileDescriptor)
             }
