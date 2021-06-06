@@ -1,9 +1,11 @@
-package com.neomind.kanesoundboard
+package com.neomind.kanesoundboard.ui
 
 import android.content.res.AssetFileDescriptor
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.neomind.kanesoundboard.model.KaneSound
+import com.neomind.kanesoundboard.util.SoundPlayer
 
 class MainViewModel : ViewModel() {
     var kaneSounds = MutableLiveData<List<KaneSound>>()

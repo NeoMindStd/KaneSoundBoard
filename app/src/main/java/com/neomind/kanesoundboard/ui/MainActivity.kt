@@ -1,11 +1,14 @@
-package com.neomind.kanesoundboard
+package com.neomind.kanesoundboard.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.neomind.kanesoundboard.KaneApplication
+import com.neomind.kanesoundboard.R
 import com.neomind.kanesoundboard.databinding.ActivityMainBinding
+import com.neomind.kanesoundboard.store.KaneSoundStore
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     @Inject
-    lateinit var kaneSoundProvider: KaneSoundProvider
+    lateinit var kaneSoundStore: KaneSoundStore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViewModel() {
-        val kaneSounds = kaneSoundProvider.getKaneSoundAssets()
+        val kaneSounds = kaneSoundStore.getKaneSoundAssets()
 
         viewModel.init(kaneSounds)
     }
