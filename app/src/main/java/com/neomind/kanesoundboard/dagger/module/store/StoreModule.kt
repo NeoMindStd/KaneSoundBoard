@@ -1,4 +1,4 @@
-package com.neomind.kanesoundboard.dagger.module
+package com.neomind.kanesoundboard.dagger.module.store
 
 import android.content.Context
 import com.neomind.kanesoundboard.store.KaneSoundStore

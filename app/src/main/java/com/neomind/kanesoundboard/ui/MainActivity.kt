@@ -1,7 +1,6 @@
 package com.neomind.kanesoundboard.ui
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -11,12 +10,13 @@ import com.neomind.kanesoundboard.databinding.ActivityMainBinding
 import com.neomind.kanesoundboard.store.KaneSoundStore
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
-    private val viewModel: MainViewModel by lazy {
-        ViewModelProvider(this).get(MainViewModel::class.java)
-    }
+class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private val viewModel: MainViewModel by lazy {
+        ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+    }
 
     @Inject
     lateinit var kaneSoundStore: KaneSoundStore
