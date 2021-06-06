@@ -1,6 +1,9 @@
 package com.neomind.kanesoundboard
 
 import android.app.Application
+import com.neomind.kanesoundboard.dagger.AppComponent
+import com.neomind.kanesoundboard.dagger.DaggerAppComponent
+import com.neomind.kanesoundboard.dagger.module.store.ContextModule
 
 class KaneApplication : Application() {
     override fun onCreate() {
@@ -9,12 +12,9 @@ class KaneApplication : Application() {
         appComponent = DaggerAppComponent.builder()
             .contextModule(ContextModule(applicationContext))
             .build()
-
-        instance = this
     }
 
     companion object {
-        lateinit var instance: KaneApplication
         lateinit var appComponent: AppComponent
     }
 }

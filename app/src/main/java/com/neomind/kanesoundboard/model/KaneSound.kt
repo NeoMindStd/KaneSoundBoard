@@ -1,4 +1,4 @@
-package com.neomind.kanesoundboard
+package com.neomind.kanesoundboard.model
 
 import android.content.res.AssetFileDescriptor
 

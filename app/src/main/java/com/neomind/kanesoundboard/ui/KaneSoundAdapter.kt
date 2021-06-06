@@ -1,11 +1,13 @@
-package com.neomind.kanesoundboard
+package com.neomind.kanesoundboard.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.neomind.kanesoundboard.R
 import com.neomind.kanesoundboard.databinding.RecyclerItemMainBinding
+import com.neomind.kanesoundboard.model.KaneSound
 
 class KaneSoundAdapter(activity: MainActivity) :
     RecyclerView.Adapter<KaneSoundAdapter.ViewHolder>() {
@@ -37,7 +39,7 @@ class KaneSoundAdapter(activity: MainActivity) :
     inner class ViewHolder(private val binding: RecyclerItemMainBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(kaneSound: KaneSound) {
-            binding.mainRecyclerPlayButton.text = kaneSound.name
+            binding.mainRecyclerPlayText.text = kaneSound.name
             binding.mainRecyclerPlayButton.setOnClickListener {
                 viewModel.playSound(kaneSound.assetFileDescriptor)
             }
