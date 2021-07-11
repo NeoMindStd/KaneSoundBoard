@@ -1,4 +1,4 @@
-package com.neomind.kanesoundboard.dagger.module.viewmodel
+package com.neomind.kanesoundboard.common.dagger.presentation
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

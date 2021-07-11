@@ -1,4 +1,4 @@
-package com.neomind.kanesoundboard.ui
+package com.neomind.kanesoundboard.common.view
 
 import android.content.Context
 import android.graphics.Rect

@@ -1,16 +1,16 @@
 package com.neomind.kanesoundboard
 
 import android.app.Application
-import com.neomind.kanesoundboard.dagger.component.AppComponent
-import com.neomind.kanesoundboard.dagger.component.DaggerAppComponent
-import com.neomind.kanesoundboard.dagger.module.store.ContextModule
+import com.neomind.kanesoundboard.common.dagger.app.AppComponent
+import com.neomind.kanesoundboard.common.dagger.app.AppModule
+import com.neomind.kanesoundboard.common.dagger.app.DaggerAppComponent
 
 class KaneApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
         appComponent = DaggerAppComponent.builder()
-            .contextModule(ContextModule(applicationContext))
+            .appModule(AppModule(this))
             .build()
     }
 

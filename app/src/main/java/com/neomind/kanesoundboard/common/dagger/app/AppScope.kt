@@ -1,4 +1,4 @@
-package com.neomind.kanesoundboard.dagger.scope
+package com.neomind.kanesoundboard.common.dagger.app
 
 import javax.inject.Scope
 
