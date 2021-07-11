@@ -1,4 +1,4 @@
-package com.neomind.kanesoundboard.ui
+package com.neomind.kanesoundboard.ui.main.kanesounds
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,10 +9,10 @@ import com.neomind.kanesoundboard.R
 import com.neomind.kanesoundboard.databinding.RecyclerItemMainBinding
 import com.neomind.kanesoundboard.model.KaneSound
 
-class KaneSoundAdapter(activity: MainActivity) :
+class KaneSoundAdapter(fragment: KaneSoundsFragment) :
     RecyclerView.Adapter<KaneSoundAdapter.ViewHolder>() {
-    private val viewModel: MainViewModel by lazy {
-        ViewModelProvider(activity).get(MainViewModel::class.java)
+    private val viewModel: KaneSoundsViewModel by lazy {
+        ViewModelProvider(fragment).get(KaneSoundsViewModel::class.java)
     }
 
     private var kaneSounds: List<KaneSound> = viewModel.kaneSounds.value ?: emptyList()

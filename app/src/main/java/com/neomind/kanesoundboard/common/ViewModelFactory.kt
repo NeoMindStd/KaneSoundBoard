@@ -1,10 +1,11 @@
-package com.neomind.kanesoundboard
+package com.neomind.kanesoundboard.common
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import javax.inject.Inject
 import javax.inject.Provider
 
-class ViewModelFactory(
+class ViewModelFactory @Inject constructor(
     private val providerMap: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>
 ) :
     ViewModelProvider.Factory {

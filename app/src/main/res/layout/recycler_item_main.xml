@@ -16,14 +16,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.neomind.kanesoundboard.ui.ScrollingTextView
+            <com.neomind.kanesoundboard.common.view.ScrollingTextView
                 android:id="@+id/main_recycler_play_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
                 android:singleLine="true"
                 android:textAlignment="center"
-                android:marqueeRepeatLimit="marquee_forever"
                 android:textColor="@color/design_default_color_primary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
